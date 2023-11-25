@@ -2,6 +2,7 @@ package com.example.backend.controller;
 import com.example.backend.exception.CourseNotFoundException;
 import com.example.backend.repository.CourseRepository;
 import com.example.backend.model.Course;
+import com.example.backend.requestBody.userLoginReqBody;
 import com.example.backend.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,13 @@ public class CourseController {
     @GetMapping("/courses")
     private List<Course> getAllCourses(){
         return courseService.getAllCourses();
+    }
+
+
+    //LOGIN
+    @GetMapping("/login")
+    private Long getUserLoginId(@RequestBody userLoginReqBody userReq){
+        return courseService.validateUser(userReq);
     }
 
     @GetMapping("/course/{course_id}")
