@@ -1,17 +1,26 @@
 package com.example.backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 public class CoursePrerequisite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long courseId;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "course_id")
+    private Course course;
 
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "prereq_id", nullable = false)
+    private Course prerequisite;
+
+    @Column(name="prereq_description")
+    private String prereqDescription;
 
 }
