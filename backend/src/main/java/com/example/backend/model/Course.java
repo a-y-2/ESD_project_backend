@@ -9,11 +9,11 @@ public class Course {
     @Id
     @GeneratedValue
     private Long course_id;
-    private Long course_code;
+    private String course_code;
     private String name;
     private String description;
     private Integer year;
-    private Integer term;
+    private String term;
     private Integer credits;
     private Integer capacity;
     private String faculty;
@@ -34,11 +34,11 @@ public class Course {
         this.course_id = course_id;
     }
 
-    public Long getCourse_code() {
+    public String getCourse_code() {
         return course_code;
     }
 
-    public void setCourse_code(Long course_code) {
+    public void setCourse_code(String course_code) {
         this.course_code = course_code;
     }
 
@@ -74,11 +74,11 @@ public class Course {
         this.year = year;
     }
 
-    public Integer getTerm() {
+    public String getTerm() {
         return term;
     }
 
-    public void setTerm(Integer term) {
+    public void setTerm(String term) {
         this.term = term;
     }
 

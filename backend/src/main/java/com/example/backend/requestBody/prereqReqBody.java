@@ -6,15 +6,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-public class userLoginReqBody {
-        @JsonProperty("email")
-        private String email;
+public class prereqReqBody {
 
-        @JsonProperty("password")
-        private String password;
+    @JsonProperty("course_id")
+    private Long prereqId;
+
+    @JsonProperty("description")
+    private String description;
+
 }
